@@ -1,0 +1,15 @@
+.header
+ .header__contents
+  .header__contents__logo
+   %h1
+    Like_
+    %i.fas.fa-heart
+
+  .header__contents__logo__nav
+   %ul
+    %li.header-form
+     =link_to "投稿フォーム",new_post_image_path,class:""
+    %li.header-mypage
+     =link_to "マイページ",class:""
+    %li.header-logout
+     =link_to "ログアウト",destroy_user_session_path, method: :delete
