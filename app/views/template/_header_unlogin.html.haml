@@ -1,0 +1,13 @@
+.header
+ .header__contents
+  .header__contents__logo
+   %h1
+    Like_
+    %i.fas.fa-heart
+
+  .header__contents__logo__nav
+   %ul
+    %li.header-sign
+     =link_to "新規登録", new_user_registration_path,class:""
+    %li.header-login
+     =link_to "ログイン",user_session_path,class:""

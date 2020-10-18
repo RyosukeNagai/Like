@@ -7,5 +7,9 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{crossorigin: "anonymous", src: "https://kit.fontawesome.com/ffe6531265.js"}
+    %link{:href => "https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Playball&family=Secular+One&family=Sniglet:wght@400;800&family=Ultra&display=swap", :rel => "stylesheet"}/
+
+
   %body
     = yield

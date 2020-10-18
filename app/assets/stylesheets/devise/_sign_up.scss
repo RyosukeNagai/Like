@@ -1,0 +1,46 @@
+//sign-upページ
+.sign {
+	width: 550px;
+	margin: 0 auto;
+	height: auto;
+	background-color: $Background;
+	margin-top: 50px;
+	&__title {
+		width: 150px;
+		margin-left: 35%;
+		margin-bottom: 20px;
+		font-size: 25px;
+		padding-top: 25px;
+		border-bottom: 1px solid red;
+	}
+}
+.field p {
+	font-size: 30px;
+	@include font-family;
+	padding-left: 20%;
+}
+.form {
+	width:350px;
+	margin-left: 20%;
+	height:40px;
+	border:1px solid #DCDCDC;
+	margin-top: 15px;
+}
+
+//ログインページ
+
+.login {
+	width: 550px;
+	margin: 0 auto;
+	height: auto;
+	background-color: $Background;
+	margin-top: 50px;
+	&__title {
+	    width: 100px;
+		margin-left: 40%;
+		margin-bottom: 20px;
+		font-size: 25px;
+		padding-top: 25px;
+		border-bottom: 1px solid red;
+	}
+}

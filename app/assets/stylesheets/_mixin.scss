@@ -1,0 +1,46 @@
+@mixin clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+
+@mixin button{
+  cursor:pointer;
+  position: relative;
+  z-index: 3;
+}
+@mixin sign {
+  border: solid 2px rgba( 135, 206, 250, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 45%;
+}
+@mixin login {
+  border: solid 2px rgba( 102, 205, 170, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 15%;
+}
+@mixin form {
+  border: solid 2px rgba( 135, 206, 250, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 40%;
+}
+@mixin mypage {
+  border: solid 2px rgba( 102, 205, 170, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 5%;
+}
+@mixin logout {
+  border: solid 2px rgba( 255, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  margin-left: 5%;
+}
+@mixin font-family {
+	font-family: 'Caveat Brush', cursive;
+}

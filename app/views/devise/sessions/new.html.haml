@@ -1,0 +1,22 @@
+=render "template/header_unlogin"
+.login
+  .login__title
+    %h2
+      %b ログイン
+  .sign__form
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        %p
+          %b mail　
+          %span.mandatory 必須
+        = f.email_field :email, autofocus: true,autocomplete: "mail",class:"form",placeholder:"　PC・携帯どちらでも可"
+
+        %p
+          %b password　
+          %span.mandatory 必須
+        = f.password_field :password, autocomplete: "off",class:"form",placeholder:"　6文字以上の半角英数字"
+
+        .actions
+          = f.submit "Login", style:"margin-left: 43%;padding: 5px;margin-top: 20px;margin-bottom: 20px;"
+
