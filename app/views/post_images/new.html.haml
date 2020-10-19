@@ -1,0 +1,21 @@
+.main-section
+  .header
+    -if user_signed_in?
+      =render "template/header_login"
+    -else
+      =render "template/header_unlogin"
+.new
+  .new__form
+    .new__form__title
+      %p.new-title 画像投稿フォーム
+      = form_for(@post_image, url: post_images_path) do |f|
+        = f.attachment_field :image, class: "post_image"
+        %br/
+        .form-group.has-icon
+        %label.control-label.sr-only ショップ名
+        = f.text_field :shop_name, class: "shop_name", placeholder:" タイトル。"
+        %span.fa.fa-building.form-control-icon{"aria-hidden" => "true"}
+        %br/
+        = f.text_area :caption, class: "caption", placeholder:" コメントここに。"
+        %hr/
+        = f.submit "送信", class: "bottom"

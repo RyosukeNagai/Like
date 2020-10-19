@@ -1,0 +1,26 @@
+.post-meta-top
+  .post-image
+    = attachment_image_tag @post_image, :image
+.post-content
+  %h2.post-title= @post_image.shop_name
+  %ul.meta-info-cells.v4.float-wrapper
+    %li
+      %i.fa.fa-user>
+      By
+      %a{:href => "#"}
+        = @post_image.user.name
+    %li
+      %i.fa.fa-calendar
+      = @post_image.created_at.strftime('%Y/%m/%d')
+    %li
+      %i.fa.fa-heart
+      %a{:href => "#"} 202 いいね
+    %li
+      %i.fa.fa-comment
+      %a{:href => "#comments"} 4
+  .post-content-inner.mt-20
+    %p= @post_image.caption
+
+
+    %li
+      = link_to "削除", post_image_path(@post_image), method: :delete

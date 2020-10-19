@@ -4,5 +4,19 @@
       =render "template/header_login"
     -else
       =render "template/header_unlogin"
-
-      
+.main
+  .main__image
+    .main__image__view-first
+      - @post_images.each do |post_image|
+        = attachment_image_tag post_image, :image, :fill, 650, 500,class: "images"
+        .main__image__content
+          .main__image__content__name
+            %b
+              = post_image.user.name
+          .main__image__content__image
+            = link_to post_image_path(post_image.id) do
+              %i.fa.fa-map-marker
+              = post_image.shop_name
+          = image_tag('IMG_2053.JPG', class: "profile-img")
+          .main__image__content__caption
+            = post_image.caption
