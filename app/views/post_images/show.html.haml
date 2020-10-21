@@ -1,26 +1,71 @@
-.post-meta-top
-  .post-image
-    = attachment_image_tag @post_image, :image
-.post-content
-  %h2.post-title= @post_image.shop_name
-  %ul.meta-info-cells.v4.float-wrapper
-    %li
-      %i.fa.fa-user>
-      By
-      %a{:href => "#"}
-        = @post_image.user.name
-    %li
-      %i.fa.fa-calendar
-      = @post_image.created_at.strftime('%Y/%m/%d')
-    %li
-      %i.fa.fa-heart
-      %a{:href => "#"} 202 いいね
-    %li
-      %i.fa.fa-comment
-      %a{:href => "#comments"} 4
-  .post-content-inner.mt-20
-    %p= @post_image.caption
+.main-section
+  .header
+    -if user_signed_in?
+      =render "template/header_login"
+    -else
+      =render "template/header_unlogin"
+
+.post__meta
+  .post__meta__top
+    = attachment_image_tag @post_image, :image,:fill,500,500, class:"show-images"
+  .post__meta__content
+    %ul.meta-info-cells.v4.float-wrapper
+      %li
+        %i.fa.fa-user>
+        By
+        %a{:href => "#"}
+          = @post_image.user.name
+        %p 
+        %b= @post_image.shop_name
+        %p= @post_image.caption
+      %li
+        %i.fa.fa-calendar
+        = @post_image.created_at.strftime('%Y/%m/%d')
+    - if @post_image.favorited_by?(current_user)
+      %li
+        = link_to post_image_favorites_path(@post_image), method: :delete do
+          %i.fa.fa-heart{"aria-hidden" => "true", :style => "color: red;"}
+          = @post_image.favorites.count
+          いいね
+    - else
+      %li
+        = link_to post_image_favorites_path(@post_image), method: :post do
+          %i.fa.fa-heart-o{"aria-hidden" => "true"}
+          = @post_image.favorites.count
+          いいね
+
+      %li
+        %i.fa.fa-comment
+        %a{:href => "#comments"}= @post_image.comments.count
+
+    #comments.comment-list.bt.style-2
+      .float-wrapper
+        %h2.comment-count
+          = @post_image.comments.count
+          件コメント
+
+      %ol
+    - @post_image.comments.each do |comment|
+      %li.comment
+        .comment-body.bb
+          .comment-avatar
+            .avatar
+              = image_tag('sample-author1.jpg', style: "width: 60px; height: 60px;")
+        .comment-text
+          .comment-author.clearfix
+            %a.link-author{:href => "#"}= comment.user.name
+            %span.comment-meta
+              %span.comment-date= comment.created_at.strftime('%Y/%m/%d')
+
+          .comment-entry= comment.comment
+          - if comment.user == current_user
+            %div
+              = link_to "削除", post_image_comment_path(comment.post_image, comment), method: :delete, class: "btn btn-danger pull-right"
 
 
-    %li
+    = form_for [@post_image, @comment] do |f|
+      = f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに"
+      = f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right"
+
+
       = link_to "削除", post_image_path(@post_image), method: :delete
