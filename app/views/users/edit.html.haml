@@ -1,0 +1,16 @@
+.body-wrap
+  .form-header
+    %h2 プロフィール編集
+  .form-body
+    = form_for(@user) do |f|
+      %label.control-label.sr-only{:for => "inputEmail"} Name
+      = f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"名前"
+
+
+      = attachment_image_tag @user, :profile_image, :fill, 100, 100, class: "img-circle  profile-thumb", fallback: "no_image.jpg"
+
+
+      = f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form"
+
+      = f.submit "変更を保存", class:"btn btn-lg btn-block btn-base-1 mt-20"
+

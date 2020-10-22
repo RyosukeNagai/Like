@@ -1,3 +1,71 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//showページ
+.show-images {
+	top: 0px;
+}
+.post__meta {
+	width:1000px;
+	height: auto;
+	margin-left: 300px;
+	&__top {
+		width: 500px;
+		height: 500px;
+	}
+}
+.post__meta__content {
+			width: 500px;
+			height: 500px;
+			margin-left: 20px;
+			margin-top: 25px;
+		}
+.post__meta__content li{
+	list-style: none;
+	width: 400px;
+	margin-top: 5px;
+}
+.form-control {
+	width: 350px;
+	height: 150px;
+}
+.post__meta__content p {
+	display: inline-block;
+}
+.profile-container {
+	width: 500px;
+	margin: 0 auto;
+}
+.profile-name {
+}
+.img-circle {
+	margin-top: 10px;
+	border-radius: 50%;
+}
+
+//Editページ
+.body-wrap {
+	width: 500px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+.form-header h2{
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.form-body {
+	background-color: $Background;
+}
+#inputEmail {
+	margin-bottom: 30px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+.profile-thumb {
+	float: left;
+}
+.user-edit-form {
+	margin-bottom: 30px;
+}

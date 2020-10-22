@@ -4,23 +4,4 @@
       =render "template/header_login"
     -else
       =render "template/header_unlogin"
-.main
-  .main__image
-    .main__image__view-first
-      - @post_images.each do |post_image|
-        = attachment_image_tag post_image, :image, :fill, 650, 500,class: "images",style:"background-position: top center;"
-        .main__image__content
-          .main__image__content__name
-            %b By 
-            = post_image.user.name
-          .main__image__content__image
-            = link_to post_image_path(post_image.id) do
-              %i.fa.fa-map-marker
-              = post_image.shop_name
-          = image_tag('IMG_2053.JPG', class: "profile-img")
-          .main__image__content__comments
-            %i.fa.fa-comment
-              = link_to "#{post_image.comments.count} コメント", post_image_path(post_image.id)
-          .main__image__content__caption
-            = post_image.caption
-          
+= render 'post_images/list', post_images: @post_images
