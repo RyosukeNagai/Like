@@ -11,6 +11,6 @@
     %li.header-form
      =link_to "投稿フォーム",new_post_image_path,class:""
     %li.header-mypage
-     =link_to "マイページ",class:""
+     =link_to "マイページ",user_path(current_user.id)
     %li.header-logout
      =link_to "ログアウト",destroy_user_session_path, method: :delete

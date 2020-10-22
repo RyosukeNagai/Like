@@ -1,0 +1,15 @@
+.main-section
+  .header
+    -if user_signed_in?
+      =render "template/header_login"
+    -else
+      =render "template/header_unlogin"
+.profile-container
+  = attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', class: "img-circle", fallback: "no_image.jpg"
+  %b.profile-name= @user.name
+
+  - if @user.id == current_user.id
+    %p= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right"
+
+
+= render 'post_images/list', post_images: @post_images

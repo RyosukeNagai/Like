@@ -1,0 +1,22 @@
+.main
+  .main__image
+    .main__image__view-first
+      - post_images.each do |post_image|
+        = attachment_image_tag post_image, :image, :fill, 650, 500,class: "images",style:"background-position: top center;"
+        .main__image__content
+          .main__image__content__name
+            %b By 
+            = post_image.user.name
+          .main__image__content__image
+            = link_to post_image_path(post_image.id) do
+              %i.fa.fa-map-marker
+              = post_image.shop_name
+          = attachment_image_tag post_image.user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg"
+          .main__image__content__comments
+            %i.fa.fa-comment
+              = link_to "#{post_image.comments.count} コメント", post_image_path(post_image.id)
+            %i.fa.fa-heart
+              = link_to "#{post_image.favorites.count} いいね", post_image_path(post_image.id)
+          .main__image__content__caption
+            = post_image.caption
+        = paginate post_images

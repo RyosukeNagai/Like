@@ -67,7 +67,6 @@
 	width: 150px;
 	height: 40px;
 	padding-top: 20px;
-	background-color: red;
 }
 .main__image__content__comments i {
 	font-size: 15px;
@@ -124,40 +123,6 @@
 	color: #fff;
 	padding: 2px;
 }
-
-//showページ
-.show-images {
-	top: 0px;
-}
-.post__meta {
-	width:1000px;
-	height: auto;
-	margin-left: 300px;
-	&__top {
-		width: 500px;
-		height: 500px;
-	}
-}
-.post__meta__content {
-			width: 500px;
-			height: 500px;
-			margin-left: 20px;
-			margin-top: 25px;
-		}
-.post__meta__content li{
-	list-style: none;
-	width: 400px;
-	margin-top: 5px;
-}
-.form-control {
-	width: 350px;
-	height: 150px;
-}
-.post__meta__content p {
-	display: inline-block;
-}
-
-
 
 
 
