@@ -1,24 +1,78 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# このアプリについて
+ - シンプルな画像投稿サイト
+ - コメント機能・いいね機能実装
+ - Hamlの導入
+ - 使用Gem
 
-Things you may want to cover:
+# Gem/ver
+* Ruby:2.5.7
 
-* Ruby version
+* Rails:'~> 5.2.4', '>= 5.2.4.4'
 
 * System dependencies
+ - gem 'devise'
+ - gem 'jquery-rails'
+ - gem 'font-awesome-sass'
+ - gem 'haml-rails'
+ - gem 'refile'
+ - gem 'refile-mini_magick'
+ - gem 'kaminari'
+ - gem 'pry-rails'
 
-* Configuration
+## usersテーブル
+|Column|Type|
+|------|----|
+|name|string|
+|email|string|
+|password|string|
 
-* Database creation
+### Association
+ -has_many: post_images<br>
+ -has_many: comments<br>
+ -has_many: favorites<br>
 
-* Database initialization
+## post_imagesテーブル
+|Column|Type|
+|------|----|
+|shop_name|text|
+|image_id|string|
+|caption|text|
+|avatar|text|
+|user_id|integer|
 
-* How to run the test suite
+### Association
+ -belongs_to: user<br>
+ -has_many: comments<br>
+ -has_many: favorites<br>
 
-* Services (job queues, cache servers, search engines, etc.)
+## commentsテーブル
+|Column|Type|
+|------|----|
+|comment|text|
+|user_id|integer|
+|post_image_id|integer|
 
-* Deployment instructions
+### Association
+ -belongs_to: user<br>
+ -belongs_to: post_image<br>
 
-* ...
+## favoritesテーブル
+|Column|Type|
+|------|----|
+|user_id|integer|
+|post_image_id|integer|
+
+### Association
+ -belongs_to: user<br>
+ -belongs_to: post_image<br>
+
+
+
+
+
+
+
+
+
