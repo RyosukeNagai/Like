@@ -1,6 +1,5 @@
 # README
-
-スクリーンショット 2020-11-01 23.40.41
+![image](https://user-images.githubusercontent.com/64464083/97806000-ca555d00-1c9c-11eb-8662-a698d7ed791e.png)
 
 # このアプリについて
  - シンプルな画像投稿サイト
